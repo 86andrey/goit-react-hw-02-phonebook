@@ -82,7 +82,7 @@ const Btn = styled.button`
     padding: 12px 12px;
     :hover, :focus {
   color: white;
-  background-color: blue;
+  background-color: greenyellow;
 }`;
 
 export default ContactForm;

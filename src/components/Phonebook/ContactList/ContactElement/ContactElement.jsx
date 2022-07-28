@@ -1,14 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const ContactElement = ({ name, number, id, onDeleteContact }) => {
   return (
-    <li key={id}>
+    <Li key={id}>
         <p>
           {name}: {number}
       </p>
-      <button onClick={()=>onDeleteContact(id)}>Delete</button>
-      </li>
+      <Btn onClick={()=>onDeleteContact(id)}>Delete</Btn>
+      </Li>
   );
 };
+const Li = styled.li`
+align-items: center;
+    display: flex;
+    font-size: 18px;
+    font-weight: 500;`;
+
+    const Btn = styled.button`
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    font-weight: 400;
+   margin-left: 50px;
+    :hover, :focus {
+  color: white;
+  background-color: blue;
+  :hover, :focus {
+  background-color: red;
+}`;
+
 
 export default ContactElement;

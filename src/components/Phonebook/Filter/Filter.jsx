@@ -1,10 +1,24 @@
 import React from 'react';
+import styled from 'styled-components';
+
 
 const Filter = ({ value, onChange }) => (
-  <label>
+  <Label>
     Find contacts by name
-    <input type="text" name="filter" value={value} onChange={onChange} />
-  </label>
+    <Input type="text" name="filter" value={value} onChange={onChange} />
+  </Label>
 );
+
+const Label = styled.label`
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;`;
+
+const Input = styled.input`
+    border-radius: 5px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 250px;`;
 
 export default Filter;
