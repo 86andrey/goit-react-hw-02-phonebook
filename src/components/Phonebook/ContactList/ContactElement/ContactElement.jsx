@@ -1,11 +1,12 @@
 import React from 'react';
 
-const ContactElement = ({ name, number, id }) => {
+const ContactElement = ({ name, number, id, onDeleteContact }) => {
   return (
     <li key={id}>
         <p>
           {name}: {number}
-        </p>
+      </p>
+      <button onClick={()=>onDeleteContact(id)}>Delete</button>
       </li>
   );
 };

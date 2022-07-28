@@ -17,18 +17,33 @@ class Phonebook extends Component {
         filter: ''
     };
 
-    contactId = shortid.generate();
+    generateIdContact = shortid.generate();
 
-    formSubmitHandler = ({ name, number }) => {
+    addContact = ({ name, number }) => {
+    this.setState(({ contacts }) => {
+      const isContact = contacts.find(contact => contact.name === name);
+
+      if (isContact) {
+        alert(`${name} is already in contact`);
+        return contacts;
+      } else {
         const newContact = {
-            id: this.contactId,
-            name,
-            number
-        };  
-        this.setState(({ contacts }) => ({
-            contacts: [...contacts, newContact],
-        }));
-    };
+        id: this.generateIdContact,
+        name,
+        number,
+      };
+        return {
+          contacts: [newContact, ...contacts],
+        };
+      }
+    });
+  };
+
+    deleteContact = (contactId) => {
+        this.setState(prevState => ({
+            contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+        }))
+    }; 
 
     onChangeFilter = (e) => {
         this.setState({ filter: e.currentTarget.value });
@@ -48,10 +63,10 @@ class Phonebook extends Component {
         return (
             <SectionPhonebook>
                 <h1>Phonebook</h1>
-                <ContactForm onSubmit={ this.formSubmitHandler} />
+                <ContactForm onSubmit={ this.addContact} />
                 <h2>Contacts</h2>
                 <Filter value={filter} onChange={this.onChangeFilter } />
-                <ContactList contacts={visibleContacts} />        
+                <ContactList contacts={visibleContacts} onDeleteContact={this.deleteContact} />        
             </SectionPhonebook>)        
     };
 };
