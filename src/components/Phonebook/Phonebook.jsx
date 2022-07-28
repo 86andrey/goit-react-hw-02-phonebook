@@ -41,7 +41,6 @@ class Phonebook extends Component {
             contact.name.toLowerCase().includes(normalizedFilter));
     };
 
-    
     render() {
         const { filter } = this.state;
         const visibleContacts = this.getVisibleContact();
@@ -62,5 +61,4 @@ width: 200px;
 margin: auto;
 `
 
-    
 export default Phonebook;
