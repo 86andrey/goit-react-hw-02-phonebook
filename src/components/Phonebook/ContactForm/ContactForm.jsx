@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import shortid from 'shortid';
+
 
 class ContactForm extends Component{
     state = {
@@ -7,7 +7,7 @@ class ContactForm extends Component{
         number: ''
     };
 
-    // nameInputId = shortid.generate();
+   
 
     onInputChange = e => {
         const { name, value } = e.currentTarget;
@@ -36,7 +36,7 @@ class ContactForm extends Component{
                         required
                         value={this.state.name}
                     onChange={this.onInputChange}
-                    // id={this.nameInputId}
+                    
                         />
                     </label>
                     <label>Number
