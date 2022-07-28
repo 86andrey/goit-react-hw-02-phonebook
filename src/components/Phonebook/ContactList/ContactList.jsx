@@ -1,13 +1,10 @@
 import React from 'react';
+import ContactElement from './ContactElement';
 
 const ContactList = ({ contacts }) => (
   <ul>
     {contacts.map(({ name, number, id }) => (
-      <li key={id}>
-        <p>
-          {name}: {number}
-        </p>
-      </li>
+        <ContactElement name={name} number={number} id={ id} />
     ))}
   </ul>
 );

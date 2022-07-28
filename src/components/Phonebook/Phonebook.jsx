@@ -37,12 +37,13 @@ class Phonebook extends Component {
     getVisibleContact = () => {
         const { contacts, filter } = this.state;
         const normalizedFilter = filter.toLowerCase();
-        return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
+        return contacts.filter(contact =>
+            contact.name.toLowerCase().includes(normalizedFilter));
     };
 
     
     render() {
-        
+        const { filter } = this.state;
         const visibleContacts = this.getVisibleContact();
 
         return (
@@ -50,7 +51,7 @@ class Phonebook extends Component {
                 <h1>Phonebook</h1>
                 <ContactForm onSubmit={ this.formSubmitHandler} />
                 <h2>Contacts</h2>
-                <Filter value={this.state.filter} onChange={this.onChangeFilter } />
+                <Filter value={filter} onChange={this.onChangeFilter } />
                 <ContactList contacts={visibleContacts} />        
             </SectionPhonebook>)        
     };
