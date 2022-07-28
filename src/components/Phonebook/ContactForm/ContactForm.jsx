@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
 
 class ContactForm extends Component{
     state = {
@@ -26,9 +26,9 @@ class ContactForm extends Component{
     };
 
     render() {
-        return (<form onSubmit={this.onSubmitForm}>
-                    <label>Name
-                    <input
+        return (<Form onSubmit={this.onSubmitForm}>
+                    <Label>Name
+                    <Input
                         type="text"
                         name="name"
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -38,9 +38,9 @@ class ContactForm extends Component{
                     onChange={this.onInputChange}
                     
                         />
-                    </label>
-                    <label>Number
-                    <input
+                    </Label>
+                    <Label>Number
+                    <Input
                          type="tel"
                         name="number"
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -49,10 +49,41 @@ class ContactForm extends Component{
                             value={this.state.number}
                             onChange={this.onInputChange}
                         />
-                        </label>                    
-                    <button type="submit">Add contact</button>
-                </form>);
+                        </Label>                    
+                    <Btn type="submit">Add contact</Btn>
+                </Form>);
     }
-}
+};
+
+const Form = styled.form`
+    border: 3px solid darkred;
+    border-radius: 10px;
+    padding: 15px;
+    `;
+
+const Label = styled.label`
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;`;
+
+const Input = styled.input`
+    border-radius: 5px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 250px;`;
+
+const Btn = styled.button`
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    font-weight: 400;
+    padding: 12px 12px;
+    :hover, :focus {
+  color: white;
+  background-color: blue;
+}`;
 
 export default ContactForm;
+

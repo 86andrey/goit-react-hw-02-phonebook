@@ -72,8 +72,11 @@ class Phonebook extends Component {
 };
 
 const SectionPhonebook = styled.div`
-width: 200px;
+width: 400px;
 margin: auto;
-`
+padding: 20px;
+flex-direction: column;
+border: 2px solid darkred;
+border-radius: 10px;`
 
 export default Phonebook;
