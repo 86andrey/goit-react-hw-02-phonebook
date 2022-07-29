@@ -10,7 +10,7 @@ const Filter = ({ value, onChange }) => (
   </Label>
 );
 
-Statistic.propTypes = {
+Filter.propTypes = {
   value: PropTypes.string.isRequired,
 };
 

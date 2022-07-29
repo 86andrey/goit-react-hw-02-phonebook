@@ -15,8 +15,7 @@ const ContactElement = ({ name, number, id, onDeleteContact }) => {
 
 ContactElement.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
-  id: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };
 
 const Li = styled.li`
