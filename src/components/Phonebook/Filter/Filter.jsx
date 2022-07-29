@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 
@@ -8,6 +9,10 @@ const Filter = ({ value, onChange }) => (
     <Input type="text" name="filter" value={value} onChange={onChange} />
   </Label>
 );
+
+Statistic.propTypes = {
+  value: PropTypes.string.isRequired,
+};
 
 const Label = styled.label`
     display: flex;

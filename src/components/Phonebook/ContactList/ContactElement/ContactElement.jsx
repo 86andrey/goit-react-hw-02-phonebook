@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const ContactElement = ({ name, number, id, onDeleteContact }) => {
@@ -11,6 +12,13 @@ const ContactElement = ({ name, number, id, onDeleteContact }) => {
       </Li>
   );
 };
+
+ContactElement.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
+};
+
 const Li = styled.li`
 align-items: center;
     display: flex;
